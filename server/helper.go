@@ -2,7 +2,6 @@ package server
 
 import (
 	"encoding/json"
-	"fmt"
 	"math"
 	"net/http"
 	"regexp"
@@ -30,14 +29,9 @@ func CalcPoints(receipt Receipt) int {
 	total := receipt.Total
 	points := 0
 	points = calcName(name, points)
-	fmt.Printf("points after name: %d\n", points)
 	points = calcTotal(total, points)
-	fmt.Printf("points after total: %d\n", points)
 	points = calcItems(items, points)
-	fmt.Printf("points after items: %d\n", points)
 	points = calcDateTime(date, t, points)
-	fmt.Printf("points after dateTime: %d\n", points)
-
 	return points
 
 }
@@ -79,7 +73,6 @@ func calcItems(items []Item, points int) int {
 	itemLen := len(items)
 	pairs := itemLen / 2
 	newPoints := 5 * pairs
-	fmt.Printf("Pairs found: %d, newPoints: %d\n", pairs, newPoints)
 	points += newPoints
 	for i := range items {
 		item := items[i]
@@ -88,7 +81,6 @@ func calcItems(items []Item, points int) int {
 			floatPrice, _ := strconv.ParseFloat(item.Price, 64)
 			addAmt := int(math.Ceil(floatPrice * 0.2))
 			points += addAmt
-			fmt.Printf("For %s Adding %d", trimmedName, addAmt)
 		}
 	}
 	return points

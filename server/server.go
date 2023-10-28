@@ -2,7 +2,6 @@ package server
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -29,9 +28,6 @@ type ProcessReceiptResponse struct {
 }
 
 func ProcessReceipt(rw http.ResponseWriter, r *http.Request) {
-	// read in receipts,
-	// store them in a hashmap and come up with an id?
-	//
 	ok := true
 	var id string
 	for ok {
@@ -49,7 +45,6 @@ func ProcessReceipt(rw http.ResponseWriter, r *http.Request) {
 	resp := ProcessReceiptResponse{
 		ID: id,
 	}
-	fmt.Printf("%v\n", receiptMap)
 	JsonWriter(rw, resp)
 }
 
