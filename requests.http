@@ -26,6 +26,16 @@ POST http://localhost:3000/receipts/process
 
 
 ###
+POST http://localhost:3000/receipts/process
+
+{
+  "first_name": "Kailas1",
+  "last_name": "Shekar1",
+  "email": "kailas.shekar+1@gmail.com"
+}
+
+
+###
 
 
 GET http://localhost:3000/receipts/{id}/points
@@ -120,4 +130,13 @@ POST https://f714-2601-647-5600-80d0-183b-97bb-b467-2807.ngrok.io/receipts/proce
     }
   ],
   "total": "9.00"
+}
+
+###
+POST http://localhost:3000/server/account/create
+
+{
+  "first_name": "Kailas1",
+  "last_name": "Shekar1",
+  "email": "kailas.shekar+1@gmail.com"
 }
